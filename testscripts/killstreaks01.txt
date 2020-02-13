@@ -1,0 +1,247 @@
+sv_cheats 1;
+ent_fire trigger_bru* addoutput"targetname map_entity;
+ent_fire filter_activator_na* addoutput"targetname map_entity;
+ent_fire point_clientcomma* addoutput"targetname map_entity;
+ent_fire filter_activator_tfte* addoutput"targetname map_entity;
+Test_Wait .1;
+ent_fire map_enti* addoutput"classname map_entity;
+ent_fire map_enti* addoutput"classname map_entity;
+ent_fire map_enti* addoutput"classname map_entity;
+ent_fire map_enti* addoutput"classname map_entity;
+Test_Wait .1;
+give filter_activator_tfteam;
+ent_fire filter_activator_tfteam addoutput"targetname ks01_filt_red;
+ent_fire ks01_filt_red addoutput"classname ks01_filt_red;
+ent_fire ks01_filt_red addoutput"OnPass !activator,color,255+0+0;
+ent_fire ks01_filt_red setteam 2
+Test_Wait .1;
+give filter_activator_tfteam;
+ent_fire filter_activator_tfteam addoutput"targetname ks01_filt_blue;
+ent_fire ks01_filt_blue addoutput"classname ks01_filt_blue;
+ent_fire ks01_filt_blue addoutput"OnPass !activator,color,0+0+255;
+ent_fire ks01_filt_blue setteam 3
+
+give point_clientcommand;
+ent_fire point_clientcommand addoutput"targetname ks01_pcc;
+ent_fire ks01_pcc addoutput"classname ks01_pcc;
+
+Test_Wait .1;
+
+give trigger_brush;
+ent_fire trigger_brush addoutput"targetname game_playerdie;
+ent_fire game_playerdie addoutput "classname game_playerdie;
+ent_fire game_playerdie addoutput "onuse !activator,addoutput,targetname ks_0;
+ent_fire game_playerdie addoutput "onuse !activator,color,255+255+255;
+ent_fire game_playerdie addoutput "onuse ks01_pcc,command,firstperson;
+ent_fire game_playerdie addoutput "onuse ks01_pcc,command,r_drawothermodels 1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter1;
+ent_fire killstreakfilter1 addoutput "classname killstreakfilter1;
+ent_fire killstreakfilter1 addoutput "filtername ks_0;
+ent_fire killstreakfilter1 addoutput "OnPass !activator,addoutput,targetname ks_1;
+
+Test_Wait .1;
+
+ent_create filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter2;
+ent_fire killstreakfilter2 addoutput "classname killstreakfilter2;
+ent_fire killstreakfilter2 addoutput "filtername ks_1;
+ent_fire killstreakfilter2 addoutput "OnPass !activator,addoutput,targetname ks_2;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter3;
+ent_fire killstreakfilter3 addoutput "classname killstreakfilter3;
+ent_fire killstreakfilter3 addoutput "filtername ks_2;
+ent_fire killstreakfilter3 addoutput "OnPass !activator,addoutput,targetname ks_3;
+ent_fire killstreakfilter3 addoutput "OnPass ks01_pcc,command,impulse 101,1;
+ent_fire killstreakfilter3 addoutput "OnPass ks01_pcc,command,say I got health and ammo for my 3 kill streak!;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter4;
+ent_fire killstreakfilter4 addoutput "classname killstreakfilter4;
+ent_fire killstreakfilter4 addoutput "filtername ks_3;
+ent_fire killstreakfilter4 addoutput "OnPass !activator,addoutput,targetname ks_4;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter5;
+ent_fire killstreakfilter5 addoutput "classname killstreakfilter5;
+ent_fire killstreakfilter5 addoutput "filtername ks_4;
+ent_fire killstreakfilter5 addoutput "OnPass !activator,addoutput,targetname ks_5;
+ent_fire killstreakfilter5 addoutput "OnPass ks01_pcc,command,thirdperson,1;
+ent_fire killstreakfilter5 addoutput "OnPass ks01_pcc,command,say I got third person mode for my 5 kill streak!;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter6;
+ent_fire killstreakfilter6 addoutput "classname killstreakfilter6;
+ent_fire killstreakfilter6 addoutput "filtername ks_5;
+ent_fire killstreakfilter6 addoutput "OnPass !activator,addoutput,targetname ks_6;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter7;
+ent_fire killstreakfilter7 addoutput "classname killstreakfilter7;
+ent_fire killstreakfilter7 addoutput "filtername ks_6;
+ent_fire killstreakfilter7 addoutput "OnPass !activator,addoutput,targetname ks_7;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter8;
+ent_fire killstreakfilter8 addoutput "classname killstreakfilter8;
+ent_fire killstreakfilter8 addoutput "filtername ks_7;
+ent_fire killstreakfilter8 addoutput "OnPass !activator,addoutput,targetname ks_8;
+ent_fire killstreakfilter8 addoutput "OnPass ks01_pcc,command,impulse 101,1;
+ent_fire killstreakfilter8 addoutput "OnPass ks01_pcc,command,say I got health and ammo for my 8 kill streak!;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter9;
+ent_fire killstreakfilter9 addoutput "classname killstreakfilter9;
+ent_fire killstreakfilter9 addoutput "filtername ks_8;
+ent_fire killstreakfilter9 addoutput "OnPass !activator,addoutput,targetname ks_9;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter10;
+ent_fire killstreakfilter10 addoutput "classname killstreakfilter10;
+ent_fire killstreakfilter10 addoutput "filtername ks_9;
+ent_fire killstreakfilter10 addoutput "OnPass !activator,addoutput,targetname ks_10;
+ent_fire killstreakfilter10 addoutput "OnPass ks01_filt_blue,testactivator;
+ent_fire killstreakfilter10 addoutput "OnPass ks01_filt_red,testactivator;
+ent_fire killstreakfilter10 addoutput "OnPass ks01_pcc,command,say I got colored my team color for my 10 kill streak!;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter11;
+ent_fire killstreakfilter11 addoutput "classname killstreakfilter11;
+ent_fire killstreakfilter11 addoutput "filtername ks_10;
+ent_fire killstreakfilter11 addoutput "OnPass !activator,addoutput,targetname ks_11;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter12;
+ent_fire killstreakfilter12 addoutput "classname killstreakfilter12;
+ent_fire killstreakfilter12 addoutput "filtername ks_11;
+ent_fire killstreakfilter12 addoutput "OnPass !activator,addoutput,targetname ks_12;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter13;
+ent_fire killstreakfilter13 addoutput "classname killstreakfilter13;
+ent_fire killstreakfilter13 addoutput "filtername ks_12;
+ent_fire killstreakfilter13 addoutput "OnPass !activator,addoutput,targetname ks_13;
+ent_fire killstreakfilter13 addoutput "OnPass ks01_pcc,command,r_drawothermodels 2,2;
+ent_fire killstreakfilter13 addoutput "OnPass ks01_pcc,command,say I got wire frame for my 13 kill streak!;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter14;
+ent_fire killstreakfilter14 addoutput "classname killstreakfilter14;
+ent_fire killstreakfilter14 addoutput "filtername ks_13;
+ent_fire killstreakfilter14 addoutput "OnPass !activator,addoutput,targetname ks_14;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter15;
+ent_fire killstreakfilter15 addoutput "classname killstreakfilter15;
+ent_fire killstreakfilter15 addoutput "filtername ks_14;
+ent_fire killstreakfilter15 addoutput "OnPass !activator,addoutput,targetname ks_15;
+ent_fire killstreakfilter15 addoutput "OnPass ks01_pcc,command,impulse 101,1;
+ent_fire killstreakfilter15 addoutput "OnPass ks01_pcc,command,say I got health and ammo for my 15 kill streak!;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter16;
+ent_fire killstreakfilter16 addoutput "classname killstreakfilter16;
+ent_fire killstreakfilter16 addoutput "filtername ks_15;
+ent_fire killstreakfilter16 addoutput "OnPass !activator,addoutput,targetname ks_16;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter17;
+ent_fire killstreakfilter17 addoutput "classname killstreakfilter17;
+ent_fire killstreakfilter17 addoutput "filtername ks_16;
+ent_fire killstreakfilter17 addoutput "OnPass !activator,addoutput,targetname ks_17;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter18;
+ent_fire killstreakfilter18 addoutput "classname killstreakfilter18;
+ent_fire killstreakfilter18 addoutput "filtername ks_17;
+ent_fire killstreakfilter18 addoutput "OnPass !activator,addoutput,targetname ks_18;
+ent_fire killstreakfilter18 addoutput "OnPass !activator,color,0+255+0;
+ent_fire killstreakfilter18 addoutput "OnPass ks01_pcc,command,say I got colored bright green for my 18 kill streak!;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter19;
+ent_fire killstreakfilter19 addoutput "classname killstreakfilter19;
+ent_fire killstreakfilter19 addoutput "filtername ks_18;
+ent_fire killstreakfilter19 addoutput "OnPass !activator,addoutput,targetname ks_19;
+
+Test_Wait .1;
+
+give filter_activator_name;
+ent_fire filter_activator_name addoutput "targetname killstreakfilter20;
+ent_fire killstreakfilter20 addoutput "classname killstreakfilter20;
+ent_fire killstreakfilter20 addoutput "filtername ks_19;
+ent_fire killstreakfilter20 addoutput "OnPass !activator,addoutput,targetname ks_20;
+ent_fire killstreakfilter20 addoutput "OnPass ks01_pcc,command,noclip,2;
+ent_fire killstreakfilter20 addoutput "OnPass ks01_pcc,command,noclip,62;
+ent_fire killstreakfilter20 addoutput "OnPass ks01_pcc,command,say I got one minute of noclip for my 20 kill streak!;
+
+Test_Wait .1;
+
+give trigger_brush;
+ent_fire trigger_brush addoutput "targetname game_playerkill;
+ent_fire game_playerkill addoutput "classname game_playerkill;
+ent_fire game_playerkill addoutput "onuse killstreakfilter1,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter2,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter3,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter4,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter5,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter6,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter7,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter8,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter9,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter10,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter11,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter12,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter13,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter14,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter15,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter16,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter17,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter18,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter19,testactivator;
+ent_fire game_playerkill addoutput "onuse killstreakfilter20,testactivator;
+//
+Test_Wait .1;
+ent_fire player addoutput"targetname ks_0;
+ent_fire player addoutput"targetname ks_0;
+ent_fire playe* addoutput"targetname ks_0;
+ent_fire player addoutput"targetname ks_0;
+ent_fire player addoutput"targetname ks_0;
+mp_restartround 3;
+///

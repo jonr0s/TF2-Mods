@@ -1,0 +1,125 @@
+sv_cheats 1;
+ent_fire blue_track1 kill;
+ent_fire blue_track2 kill;
+ent_fire blue_door_prop kill;
+ent_fire blue_door_train kill;
+ent_fire blue_door_trig kill;
+ent_fire blue_filt_door kill;
+ent_fire blue_door_timer kill;
+ent_fire blue_door_push kill;
+ent_fire blue_push_trig kill;
+ent_fire blue_* kill;
+Test_Wait .2;
+setang 30 90;
+Test_Wait .1;
+//
+ent_create path_track;
+ent_fire path_track addoutput"classname blue_track1;
+ent_fire blue_track1 addoutput"targetname blue_track1;
+ent_fire blue_track1 addoutput"target blue_track2;
+ent_fire blue_track1 addoutput"OnPass blue_door_train,stop;
+Test_Wait .1;
+//
+give filter_activator_tfteam;
+ent_fire filter_activator_tfteam addoutput"targetname blue_filt_door;
+ent_fire blue_filt_door addoutput"classname blue_filt_door;
+ent_fire blue_filt_door addoutput"OnPass blue_door_train,addoutput,target blue_track1;
+ent_fire blue_filt_door addoutput"OnPass blue_door_train,start,,.1;
+ent_fire blue_filt_door addoutput"OnPass blue_door_timer,enable,,5;
+ent_fire blue_filt_door setteam 3;
+Test_Wait .1;
+//
+give filter_activator_tfteam;
+ent_fire filter_activator_tfteam addoutput"targetname blue_filt_push;
+ent_fire blue_filt_push addoutput"classname blue_filt_push;
+ent_fire blue_filt_push addoutput"OnPass blue_door_push,addoutput,Solid 1;
+ent_fire blue_filt_push addoutput"OnPass blue_door_timer,enable,,5;
+ent_fire blue_filt_push addoutput"OnFail blue_door_push,addoutput,Solid 2;
+ent_fire blue_filt_push setteam 3;
+Test_Wait .1;
+//
+setang 22 180;
+Test_Wait .1;
+//
+ent_create trigger_multiple;
+ent_fire trigger_multiple addoutput"targetname blue_push_trig;
+ent_fire blue_push_trig addoutput"classname blue_push_trig;
+ent_fire blue_push_trig addoutput"spawnflags 1;
+ent_fire blue_push_trig addoutput"OnStartTouch blue_filt_push,testactivator;
+ent_fire blue_push_trig addoutput"OnEndTouchAll blue_door_push,addoutput,Solid 2;
+ent_fire blue_push_trig addoutput"OnStartTouch blue_filt_door,testactivator;
+ent_fire blue_push_trig addoutput"OnEndTouchAll blue_door_train,addoutput,target blue_track2;
+ent_fire blue_push_trig addoutput"OnEndTouchAll blue_door_train,start,,.01;
+ent_fire blue_push_trig addoutput"maxs 195 110 140;
+ent_fire blue_push_trig addoutput"solid 2;
+Test_Wait .1;
+//
+setang 90 0;
+Test_Wait .1;
+//
+ent_create path_track;
+ent_fire path_track addoutput"classname blue_track2;
+ent_fire blue_track2 addoutput"targetname blue_track2;
+ent_fire blue_track2 addoutput"target blue_track1;
+ent_fire blue_track2 addoutput"OnPass blue_door_train,stop;
+Test_Wait .1;
+//
+prop_dynamic_create props_2fort/blast_door.mdl;
+Test_Wait .1;
+//
+ent_setname blue_door_prop;
+Test_Wait .1;
+//
+ent_fire blue_door_prop addoutput"angles 0 180;
+Test_Wait .1;
+//
+give trigger_multiple;
+ent_fire trigger_multiple addoutput"targetname blue_door_trig;
+ent_fire blue_door_trig addoutput"classname blue_door_trig;
+ent_fire blue_door_trig addoutput"spawnflags 1;
+ent_fire blue_door_trig addoutput"OnStartTouch blue_filt_door,testactivator;
+ent_fire blue_door_trig addoutput"OnEndTouchAll blue_door_train,addoutput,target blue_track2;
+ent_fire blue_door_trig addoutput"OnEndTouchAll blue_door_train,start,,.01;
+ent_fire blue_door_trig addoutput"OnNotTouching blue_door_train,addoutput,target blue_track2;
+ent_fire blue_door_trig addoutput"OnNotTouching blue_door_train,start,,.01;
+ent_fire blue_door_trig addoutput"OnNotTouching blue_door_timer,disable,,.01;
+ent_fire blue_door_trig addoutput"maxs 130 100 140;
+ent_fire blue_door_trig addoutput"solid 2;
+Test_Wait .1;
+//
+give logic_timer
+ent_fire logic_timer addoutput"targetname blue_door_timer;
+ent_fire blue_door_timer addoutput"classname blue_door_timer;
+ent_fire blue_door_timer addoutput"OnTimer blue_door_trig,TouchTest";
+ent_fire blue_door_timer addoutput"RefireTime 1";
+ent_fire blue_door_timer enable;
+Test_Wait .1;
+//
+give func_train;
+ent_fire func_train addoutput"targetname blue_door_train;
+ent_fire blue_door_train addoutput"classname blue_door_train;
+ent_fire blue_door_train addoutput"speed 300;
+ent_fire blue_door_train addoutput"dmg 5;
+ent_fire blue_door_train addoutput"noise1 doors/doormove2.wav;
+ent_fire blue_door_train addoutput"noise2 null;
+ent_fire blue_door_train addoutput"volume 10;
+ent_fire blue_door_train addoutput"model .;
+Test_Wait .1;
+//
+give func_conveyor;
+ent_fire func_conveyor addoutput"targetname blue_door_push;
+ent_fire blue_door_push addoutput"classname blue_door_push;
+ent_fire blue_door_push addoutput"maxs 0 105 1;
+ent_fire blue_door_push addoutput"mins -150 0 0;
+ent_fire blue_door_push addoutput"movedir 90 0 0;
+ent_fire blue_door_push addoutput"Speed 5;
+ent_fire blue_door_push addoutput"Solid 2;
+ent_fire blue_door_push use;
+Test_Wait .1;
+///
+//ADD THIS TO XBOX CFG JUST IN CASE: ent_fire blue_door_push addoutput"movedir -90 0 0"
+//
+ent_fire blue_door_prop setparent blue_door_train;
+ent_fire blue_door_prop color 100+100+155;
+ent_fire blue_door_train use;
+//
