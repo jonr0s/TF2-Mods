@@ -4,9 +4,9 @@
 <hr />
 
 ### [Config Files](cfg/) ###
-###### These are (mostly) small snippets of code and the main config files used for accessing everything in-game.
+##### These are (mostly) small snippets of code and the main config files used for accessing everything in-game.
 
 <hr>
 
 ### [Test Scripts](testscripts/) ###
-###### These are larger scripts that mostly contain entire mini-games.
+##### These are larger scripts that mostly contain entire mini-games.
