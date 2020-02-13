@@ -4,7 +4,5 @@ Here I'll be releasing all of the mods I made for Team Fortress 2 on The Orange 
 ### [Config Files](cfg/) ###
 These are (mostly) small snippets of code and the main config files used for accessing everything in-game.
 
-<hr>
-
 ### [Test Scripts](testscripts/) ###
 These are larger scripts that mostly contain entire mini-games.
