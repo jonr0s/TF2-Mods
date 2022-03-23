@@ -104,7 +104,7 @@ Test_Wait .1;
 ent_fire h18 addoutput"origin 2107 -1275 -142;
 d;
 ent_setname h19;
-Test_Wait .1;
+Test_Wait .2;
 ent_fire h19 addoutput"origin 2107 -1530 -142;
 a;
 ent_setname d2;
